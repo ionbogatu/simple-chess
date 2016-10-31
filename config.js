@@ -11,9 +11,13 @@ module.exports = {
 
 	// game configuration
 
-	map: [],
+	pawnsMap: [],
+	scoreMap: [],
 
 	mapSizeX: 8,
 	mapSizeY: 8,
 	cellSize: 120,
+
+	userSelectedColor: '',
+	computerSelectedColor: '',
 };

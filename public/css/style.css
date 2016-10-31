@@ -63,7 +63,7 @@ div[class^="row-"]{
 	width: auto;
 	display: inline-block;
 	border: 1px dashed silver;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.9);
     cursor: pointer;
 }
 
@@ -74,7 +74,7 @@ div[class*="column-"]{
 }
 
 .white-cell{
-    background: rgba(220, 220, 220, 0.7);
+    background: rgba(220, 220, 220, 0.9);
 }
 
 /* pawn colors */
@@ -94,4 +94,8 @@ div[class*="column-"]{
     background: url('/img/blck_pwn.png');
     background-size: contain;
     width: 100%;
+}
+
+.availableMovement{
+    background: rgba(0, 255, 0 ,0.6)
 }

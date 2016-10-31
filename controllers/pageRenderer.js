@@ -4,11 +4,11 @@ var renderMap = function(){
 	
 	for (var i = 0; i < config.mapSizeX; i++){
 
-		config.map[i] = [];
+		config.pawnsMap[i] = [];
 
 		for(var j = 0; j < config.mapSizeY; j++){
 
-			config.map[i][j] = 0;
+			config.pawnsMap[i][j] = 0;
 		}
 	}
 }
@@ -17,7 +17,7 @@ var renderResponse = function(){
 
 	var response = '';
 
-	for (var i = 0; i < config.map.length; i++){
+	for (var i = 0; i < config.pawnsMap.length; i++){
 		
 		response += '<div class="row-' + i + '" data-row="' + i + '">';
 		
@@ -33,11 +33,11 @@ var renderResponse = function(){
 
 			var pawn = '';
 
-			if( config.map[i][j] == 'w' ){
+			if( config.pawnsMap[i][j] == 'w' ){
 				
 				pawn = '<div class="pawn white-pawn"></div>';
 
-			}else if( config.map[i][j] == 'b' ){
+			}else if( config.pawnsMap[i][j] == 'b' ){
 
 				pawn = '<div class="pawn black-pawn"></div>';
 
@@ -56,7 +56,9 @@ var renderContent = function(){
 	// rendering algorythm
 
 	renderMap();
+
 	// fillBorders();
+
 	// fillPieceCorners();
 
 	// putTheServer();
@@ -82,13 +84,13 @@ var addPawns = function(color){
 
 		for( var i = 0; i < config.mapSizeY; i++ ){
 
-			config.map[1][i] = 'w'; // white
+			config.pawnsMap[1][i] = 'w'; // white
 
 		}
 
 		for( var i = 0; i < config.mapSizeY; i++ ){
 
-			config.map[6][i] = 'b'; // black
+			config.pawnsMap[6][i] = 'b'; // black
 
 		}
 
@@ -96,19 +98,17 @@ var addPawns = function(color){
 
 		for( var i = 0; i < config.mapSizeY; i++ ){
 
-			config.map[1][i] = 'b'; // black
+			config.pawnsMap[1][i] = 'b'; // black
 
 		}
 
 		for( var i = 0; i < config.mapSizeY; i++ ){
 
-			config.map[6][i] = 'w'; // white
+			config.pawnsMap[6][i] = 'w'; // white
 
 		}
 
 	}
-
-	console.log(config.map);
 	
 }
 
@@ -124,9 +124,15 @@ module.exports = {
 	
 		if(options.color == 'b'){
 
+			config.userSelectedColor = 'b';
+			config.computerSelectedColor = 'w';
+
 			addPawns('black');
 
 		}else{
+
+			config.userSelectedColor = 'w';
+			config.computerSelectedColor = 'b';
 
 			addPawns('white');
 
